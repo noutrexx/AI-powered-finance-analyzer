@@ -1,6 +1,5 @@
 from collections import defaultdict
-from datetime import date
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 
 from sqlalchemy.orm import Session
 
@@ -134,7 +133,10 @@ def _monthly_trend(transactions: list[Transaction]) -> list[MonthlyTrend]:
             month=month,
             income=values["income"].quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
             expense=values["expense"].quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
-            net=(values["income"] - values["expense"]).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP),
+            net=(values["income"] - values["expense"]).quantize(
+                Decimal("0.01"),
+                rounding=ROUND_HALF_UP,
+            ),
         )
         for month, values in sorted(monthly.items())
     ]

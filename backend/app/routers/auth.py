@@ -6,7 +6,12 @@ from app.config import get_settings
 from app.database import get_db
 from app.models.user import User
 from app.schemas.auth import Token, UserCreate, UserLogin, UserRead
-from app.services.auth_service import authenticate_user, create_user, get_user_by_email, get_user_by_id
+from app.services.auth_service import (
+    authenticate_user,
+    create_user,
+    get_user_by_email,
+    get_user_by_id,
+)
 from app.utils.security import create_access_token, decode_access_token
 
 settings = get_settings()
@@ -46,7 +51,10 @@ def register(payload: UserCreate, db: Session = Depends(get_db)) -> Token:
 def login(payload: UserLogin, db: Session = Depends(get_db)) -> Token:
     user = authenticate_user(db, payload.email, payload.password)
     if not user:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid email or password",
+        )
 
     access_token = create_access_token(subject=str(user.id))
     return Token(access_token=access_token, user=UserRead.model_validate(user))
@@ -55,4 +63,3 @@ def login(payload: UserLogin, db: Session = Depends(get_db)) -> Token:
 @router.get("/me", response_model=UserRead)
 def read_current_user(current_user: User = Depends(get_current_user)) -> User:
     return current_user
-

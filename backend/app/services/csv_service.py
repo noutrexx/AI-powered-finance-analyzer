@@ -26,7 +26,11 @@ def parse_transactions_csv(raw_csv: str) -> tuple[list[TransactionCreate], list[
     errors: list[str] = []
 
     for row_number, row in enumerate(reader, start=2):
-        normalized = {key.strip().lower(): (value or "").strip() for key, value in row.items() if key}
+        normalized = {
+            key.strip().lower(): (value or "").strip()
+            for key, value in row.items()
+            if key
+        }
         try:
             amount = Decimal(normalized["amount"]).copy_abs()
             payload = TransactionCreate(
@@ -41,4 +45,3 @@ def parse_transactions_csv(raw_csv: str) -> tuple[list[TransactionCreate], list[
             errors.append(f"Row {row_number}: {exc}")
 
     return rows, errors
-

@@ -5,7 +5,13 @@ def test_csv_upload_validation_returns_meaningful_errors(
     client: TestClient,
     auth_headers: dict[str, str],
 ) -> None:
-    files = {"file": ("bad.csv", b"date,description,amount,currency\n2026-01-01,Migros,100,TL\n", "text/csv")}
+    files = {
+        "file": (
+            "bad.csv",
+            b"date,description,amount,currency\n2026-01-01,Migros,100,TL\n",
+            "text/csv",
+        )
+    }
 
     response = client.post("/api/transactions/upload", headers=auth_headers, files=files)
 
@@ -27,4 +33,3 @@ def test_csv_upload_imports_valid_rows(client: TestClient, auth_headers: dict[st
     assert response.status_code == 200
     assert response.json()["imported_count"] == 2
     assert response.json()["errors"] == []
-

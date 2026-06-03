@@ -6,7 +6,11 @@ from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.transaction import TransactionCreate, TransactionRead, UploadResult
 from app.services.csv_service import parse_transactions_csv
-from app.services.transaction_service import create_transaction, create_transactions, list_transactions
+from app.services.transaction_service import (
+    create_transaction,
+    create_transactions,
+    list_transactions,
+)
 
 router = APIRouter(prefix="/transactions", tags=["transactions"])
 
@@ -37,7 +41,10 @@ async def upload_transactions(
     db: Session = Depends(get_db),
 ) -> UploadResult:
     if not file.filename.lower().endswith(".csv"):
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Only CSV files are supported")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Only CSV files are supported",
+        )
 
     content = await file.read()
     try:
@@ -55,4 +62,3 @@ async def upload_transactions(
         skipped_count=len(errors),
         errors=errors,
     )
-

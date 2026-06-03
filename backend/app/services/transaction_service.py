@@ -26,7 +26,11 @@ def create_transaction(db: Session, owner: User, payload: TransactionCreate) -> 
     return transaction
 
 
-def create_transactions(db: Session, owner: User, payloads: list[TransactionCreate]) -> list[Transaction]:
+def create_transactions(
+    db: Session,
+    owner: User,
+    payloads: list[TransactionCreate],
+) -> list[Transaction]:
     records = [
         Transaction(
             owner_id=owner.id,
@@ -46,7 +50,12 @@ def create_transactions(db: Session, owner: User, payloads: list[TransactionCrea
     return records
 
 
-def list_transactions(db: Session, owner: User, limit: int = 100, offset: int = 0) -> list[Transaction]:
+def list_transactions(
+    db: Session,
+    owner: User,
+    limit: int = 100,
+    offset: int = 0,
+) -> list[Transaction]:
     return (
         db.query(Transaction)
         .filter(Transaction.owner_id == owner.id)
@@ -55,4 +64,3 @@ def list_transactions(db: Session, owner: User, limit: int = 100, offset: int = 
         .limit(limit)
         .all()
     )
-

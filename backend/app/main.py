@@ -20,7 +20,9 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.app_name,
-        description="Upload bank transactions, classify spending, and review personal finance insights.",
+        description=(
+            "Upload bank transactions, classify spending, and review personal finance insights."
+        ),
         version="0.1.0",
         lifespan=lifespan,
     )
