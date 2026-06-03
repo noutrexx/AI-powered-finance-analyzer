@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, FileUp, Upload } from "lucide-react";
+import { CheckCircle2, FileUp, FolderOpen, Upload } from "lucide-react";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import { AppShell } from "@/components/AppShell";
@@ -56,7 +56,19 @@ export function UploadClient() {
       <form className="upload-zone" onSubmit={onSubmit}>
         <FileUp size={44} color="var(--accent)" />
         <h2>{file ? file.name : "Select transactions CSV"}</h2>
-        <input accept=".csv,text/csv" type="file" onChange={onFileChange} />
+        <label className="file-picker">
+          <input
+            accept=".csv,text/csv"
+            className="sr-only"
+            type="file"
+            onChange={onFileChange}
+          />
+          <span className="button secondary">
+            <FolderOpen size={18} />
+            Choose CSV file
+          </span>
+          <span className="muted">{file ? file.name : "No file selected"}</span>
+        </label>
         <button className="button" type="submit" disabled={loading}>
           <Upload size={18} />
           {loading ? "Importing" : "Upload CSV"}
@@ -82,4 +94,3 @@ export function UploadClient() {
     </AppShell>
   );
 }
-

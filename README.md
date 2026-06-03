@@ -112,11 +112,17 @@ Rules:
 
 ## Screenshots
 
-Add screenshots after running the app locally:
+### Dashboard
 
-- `docs/screenshots/dashboard.png`
-- `docs/screenshots/upload.png`
-- `docs/screenshots/insights.png`
+![Dashboard](docs/screenshots/dashboard.png)
+
+### CSV Upload
+
+![CSV Upload](docs/screenshots/upload.png)
+
+### Insights
+
+![Insights](docs/screenshots/insights.png)
 
 ## Future Improvements
 
@@ -131,4 +137,3 @@ Add screenshots after running the app locally:
 ## License
 
 MIT License. See `LICENSE`.
-

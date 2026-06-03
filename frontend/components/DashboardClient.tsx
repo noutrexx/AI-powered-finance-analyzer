@@ -43,6 +43,19 @@ export function DashboardClient() {
     return <div className="loading">Loading session</div>;
   }
 
+  const trendData =
+    metrics?.monthly_trend.map((item) => ({
+      ...item,
+      income: Number(item.income),
+      expense: Number(item.expense),
+      net: Number(item.net),
+    })) ?? [];
+  const categoryData =
+    metrics?.category_breakdown.map((item) => ({
+      ...item,
+      total: Number(item.total),
+    })) ?? [];
+
   return (
     <AppShell user={user}>
       <div className="page-header">
@@ -89,13 +102,25 @@ export function DashboardClient() {
               <h2>Monthly trend</h2>
               <div className="chart-box">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={metrics.monthly_trend}>
+                  <LineChart data={trendData}>
                     <CartesianGrid stroke="#dde4db" strokeDasharray="4 4" />
                     <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="income" stroke="#15803d" strokeWidth={3} />
-                    <Line type="monotone" dataKey="expense" stroke="#dc2626" strokeWidth={3} />
+                    <Line
+                      type="monotone"
+                      dataKey="income"
+                      stroke="#15803d"
+                      strokeWidth={3}
+                      isAnimationActive={false}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="expense"
+                      stroke="#dc2626"
+                      strokeWidth={3}
+                      isAnimationActive={false}
+                    />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -107,14 +132,15 @@ export function DashboardClient() {
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
-                      data={metrics.category_breakdown}
+                      data={categoryData}
                       dataKey="total"
                       nameKey="category"
                       innerRadius={70}
                       outerRadius={112}
                       paddingAngle={3}
+                      isAnimationActive={false}
                     >
-                      {metrics.category_breakdown.map((entry, index) => (
+                      {categoryData.map((entry, index) => (
                         <Cell key={entry.category} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
@@ -158,4 +184,3 @@ export function DashboardClient() {
     </AppShell>
   );
 }
-
