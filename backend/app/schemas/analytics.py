@@ -29,6 +29,15 @@ class Recommendation(BaseModel):
     priority: str
 
 
+class TransactionPreview(BaseModel):
+    id: int
+    date: date
+    description: str
+    amount: Decimal
+    currency: str
+    category: str
+
+
 class DashboardMetrics(BaseModel):
     total_income: Decimal
     total_expense: Decimal
@@ -40,13 +49,3 @@ class DashboardMetrics(BaseModel):
     savings_rate: float
     health_score: HealthScore
     recommendations: list[Recommendation]
-
-
-class TransactionPreview(BaseModel):
-    id: int
-    date: date
-    description: str
-    amount: Decimal
-    currency: str
-    category: str
-
