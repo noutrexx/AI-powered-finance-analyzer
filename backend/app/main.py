@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.database import init_db
-from app.routers import auth
+from app.routers import auth, transactions
 
 settings = get_settings()
 
@@ -36,6 +36,7 @@ def create_app() -> FastAPI:
         return {"status": "ok"}
 
     app.include_router(auth.router, prefix=settings.api_prefix)
+    app.include_router(transactions.router, prefix=settings.api_prefix)
 
     return app
 
