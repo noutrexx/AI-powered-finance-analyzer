@@ -1,0 +1,72 @@
+date,description,amount,currency,type
+2026-01-01,Salary January,62000,TL,income
+2026-01-02,Apartment rent January,18500,TL,expense
+2026-01-03,Migros weekly grocery,2450,TL,expense
+2026-01-04,Istanbul metro card top up,450,TL,expense
+2026-01-05,Netflix subscription,230,TL,expense
+2026-01-06,Electric bill,980,TL,expense
+2026-01-07,Water bill,310,TL,expense
+2026-01-08,Trendyol winter clothes,3200,TL,expense
+2026-01-10,Pharmacy vitamins,740,TL,expense
+2026-01-12,Udemy data course,899,TL,expense
+2026-01-14,Spotify family plan,100,TL,expense
+2026-01-16,Restaurant dinner Kadikoy,1680,TL,expense
+2026-01-19,Fuel station,2100,TL,expense
+2026-01-22,Freelance invoice,8500,TL,income
+2026-01-25,Cinema tickets,640,TL,expense
+2026-02-01,Salary February,62000,TL,income
+2026-02-02,Apartment rent February,18500,TL,expense
+2026-02-03,A101 household grocery,1650,TL,expense
+2026-02-04,Internet bill,620,TL,expense
+2026-02-05,Taxi airport transfer,980,TL,expense
+2026-02-06,Private clinic checkup,1950,TL,expense
+2026-02-07,Amazon kitchen supplies,1450,TL,expense
+2026-02-09,BIM market shopping,1180,TL,expense
+2026-02-12,Bookstore finance books,780,TL,expense
+2026-02-14,Restaurant lunch,920,TL,expense
+2026-02-17,Natural gas bill,1450,TL,expense
+2026-02-21,Freelance invoice,7600,TL,income
+2026-02-24,Theater tickets,1200,TL,expense
+2026-02-26,Metrobus card top up,350,TL,expense
+2026-03-01,Salary March,64000,TL,income
+2026-03-02,Apartment rent March,19000,TL,expense
+2026-03-03,Carrefour grocery,2780,TL,expense
+2026-03-04,Phone bill,540,TL,expense
+2026-03-05,Fuel station,2350,TL,expense
+2026-03-06,Coffee meetings,620,TL,expense
+2026-03-08,Hepsiburada office chair,4200,TL,expense
+2026-03-10,Eczane allergy medicine,480,TL,expense
+2026-03-12,Online English course,1500,TL,expense
+2026-03-15,Netflix subscription,230,TL,expense
+2026-03-17,Restaurant family dinner,2150,TL,expense
+2026-03-20,Bonus payment,12000,TL,income
+2026-03-23,Electric bill,1040,TL,expense
+2026-03-25,Cinema and snacks,820,TL,expense
+2026-04-01,Salary April,64000,TL,income
+2026-04-02,Apartment rent April,19000,TL,expense
+2026-04-03,Migros monthly grocery,3120,TL,expense
+2026-04-04,Ubertaxi ride,620,TL,expense
+2026-04-05,Internet bill,650,TL,expense
+2026-04-06,Water bill,340,TL,expense
+2026-04-08,Trendyol shoes,2650,TL,expense
+2026-04-10,Dentist appointment,3300,TL,expense
+2026-04-12,Book subscription,450,TL,expense
+2026-04-14,Spotify family plan,100,TL,expense
+2026-04-16,Restaurant dinner,1750,TL,expense
+2026-04-20,Freelance invoice,9400,TL,income
+2026-04-22,Fuel station,2200,TL,expense
+2026-04-25,Concert tickets,1800,TL,expense
+2026-05-01,Salary May,66000,TL,income
+2026-05-02,Apartment rent May,19500,TL,expense
+2026-05-03,A101 grocery,1840,TL,expense
+2026-05-05,Electric bill,990,TL,expense
+2026-05-07,Metro card top up,500,TL,expense
+2026-05-09,Amazon headphones,3850,TL,expense
+2026-05-11,Hospital lab tests,2100,TL,expense
+2026-05-13,Udemy backend course,1099,TL,expense
+2026-05-15,Netflix subscription,230,TL,expense
+2026-05-18,Restaurant lunch,760,TL,expense
+2026-05-22,Freelance invoice,8800,TL,income
+2026-05-24,Fuel station,2450,TL,expense
+2026-05-26,Cinema tickets,700,TL,expense
+
