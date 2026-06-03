@@ -1,5 +1,6 @@
 import unicodedata
-from collections.abc import Mapping, Protocol
+from collections.abc import Mapping
+from typing import Protocol
 
 SUPPORTED_CATEGORIES = [
     "Food",

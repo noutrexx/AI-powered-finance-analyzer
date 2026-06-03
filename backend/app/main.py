@@ -1,3 +1,6 @@
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,11 +11,18 @@ from app.routers import analytics, auth, transactions
 settings = get_settings()
 
 
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    init_db()
+    yield
+
+
 def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.app_name,
         description="Upload bank transactions, classify spending, and review personal finance insights.",
         version="0.1.0",
+        lifespan=lifespan,
     )
 
     app.add_middleware(
@@ -22,10 +32,6 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-
-    @app.on_event("startup")
-    def on_startup() -> None:
-        init_db()
 
     @app.get("/", tags=["health"])
     def root() -> dict[str, str]:

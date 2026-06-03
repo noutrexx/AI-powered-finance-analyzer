@@ -37,6 +37,8 @@ class TransactionPreview(BaseModel):
     currency: str
     category: str
 
+    model_config = {"from_attributes": True}
+
 
 class DashboardMetrics(BaseModel):
     total_income: Decimal
