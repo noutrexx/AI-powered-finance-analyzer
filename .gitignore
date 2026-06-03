@@ -7,6 +7,7 @@ __pycache__/
 .ruff_cache/
 *.pyc
 *.sqlite3
+*.egg-info/
 node_modules/
 .next/
 out/
@@ -14,4 +15,3 @@ dist/
 coverage/
 *.log
 .DS_Store
-
