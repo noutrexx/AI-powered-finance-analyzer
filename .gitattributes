@@ -1,0 +1,7 @@
+﻿# Keep tiny generated/support languages out of GitHub language stats.
+Dockerfile linguist-detectable=false
+*.dockerfile linguist-detectable=false
+*.js linguist-detectable=false
+*.jsx linguist-detectable=false
+*.mjs linguist-detectable=false
+*.cjs linguist-detectable=false
